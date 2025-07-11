@@ -13,7 +13,7 @@ logger.info("Set env vars for spark")
 spark = SparkSession.builder.appName("GoldLayerCreation").getOrCreate()
 
 # Ścieżka bazowa
-base_path = "/mnt/d/Mariusz/nord/data/silver/"
+base_path = "/home/root/data/silver/"
 
 # Lista na znalezione pliki parquet
 parquet_files = []

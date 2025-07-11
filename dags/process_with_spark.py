@@ -6,7 +6,6 @@ from airflow.operators.bash import BashOperator
 
 default_args = {
     "start_date": datetime(2025, 7, 1),
-    "catchup": False,
 }
 
 DATASETS = ["stevenblack", "urlhaus", "1hosts-lite", "ad-wars"]
@@ -14,7 +13,8 @@ DATASETS = ["stevenblack", "urlhaus", "1hosts-lite", "ad-wars"]
 with DAG(
     dag_id="download_hosts_to_data_lake",
     default_args=default_args,
-    schedule_interval="@daily",
+    schedule=None,
+    catchup=False,
     tags=["hosts", "download"],
 ) as dag:
     spark_tasks = []

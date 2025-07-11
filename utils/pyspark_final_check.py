@@ -26,7 +26,7 @@ logger.info("Set env vars for spark")
 logger.info("Create session for spark")
 spark = SparkSession.builder.appName(f"{process_name}").master("local[*]").getOrCreate()
 
-base_path = f"/mnt/d/Mariusz/nord/data/gold/"
+base_path = f"/home/root/data/gold/"
 logger.info(f"base_path set to {base_path}")
 parquet_files = []
 

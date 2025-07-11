@@ -13,7 +13,7 @@ DATASETS = {
     "ad-wars": "https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts",
 }
 
-LOCAL_BASE_PATH = "/mnt/d/Mariusz/nord/data/stage"
+LOCAL_BASE_PATH = "/home/root/data/stage"
 
 class DownloadHostsOperator(BaseOperator):
     template_fields = ("dataset_name",)

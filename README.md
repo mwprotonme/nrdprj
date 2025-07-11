@@ -7,10 +7,7 @@
 
 To start this project and use it without any issues please follow by this hints below:
     1. Change paths related to project where imitations of paths are located:
-        search project to replace /mnt/d/Mariusz/nord/data/ to the one what you want to use    
- 
-        docker-compose.yaml - line 29
-        download_hosts_operator.py - line 16
+          fix it by commit -done
 
     2. use invoke
 

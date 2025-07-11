@@ -26,7 +26,7 @@ logger.info("Set env vars for spark")
 logger.info("Create session for spark")
 spark = SparkSession.builder.appName(f"Hosts loader {process_name}").master("local[*]").getOrCreate()
 
-base_path = f"/mnt/d/Mariusz/nord/data/stage/{process_name}"
+base_path = f"/home/root/data/stage/{process_name}"
 logger.info(f"base_path set to {base_path}")
 
 for root, dirs, files in os.walk(base_path):

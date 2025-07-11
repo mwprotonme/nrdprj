@@ -10,7 +10,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5433:5432"  # be careful of port assignment, can be problem when you have already postgres
+      - "5434:5432"  # be careful of port assignment, can be problem when you have already postgres
 
   airflow:
     build:
@@ -30,11 +30,12 @@ services:
         - ./dags:/opt/airflow/dags
         - ./operators:/opt/airflow/plugins/operators
         - ./utils:/home/root/utils
-        - ./data:/mnt/d/Mariusz/nord/data # mounting path needs to be adapted to the one where solution is installed, the same  should be set in download_hosts_operator.py line 16
+        - ./data:/home/root/data # fixed
     ports:
         - "8080:8080"
     command: >
         bash -c "
+        airflow db migrate &&
         airflow db migrate &&
         airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com &&
         airflow webserver
@@ -61,7 +62,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./operators:/opt/airflow/plugins/operators
       - ./utils:/home/root/utils
-      - ./data:/mnt/d/Mariusz/nord/data
+      - ./data:/home/root/data
     command: >
       bash -c "airflow scheduler"
 
